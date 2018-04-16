@@ -1,0 +1,19 @@
+<ons-page id="tab2">
+  <p style="text-align: center;">
+    This is the second page.
+    <ons-button class="btn" modifier="large">ボタン</ons-button>
+  </p>
+  <script>
+  ons.getScriptPage().onInit = function() {
+    const tab2Controller = {
+      __name: 'Tab2Controller',
+      
+      '#tab2 .btn click'() {
+        ons.notification.alert('ここはタブ2です');
+      }
+    };
+    h5.core.controller('#tab2', tab2Controller);
+    h5.core.expose(tab2Controller);
+  };
+  </script>
+</ons-page>

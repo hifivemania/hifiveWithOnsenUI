@@ -1,0 +1,20 @@
+<ons-page id="tab1">
+  <ons-navigator swipeable id="tab1nav" page="tab1-main.html"></ons-navigator>
+  <script>
+  ons.getScriptPage().onInit = function() {
+    const tab1Controller = {
+      __name: 'Tab1Controller',
+      
+      '#backButton click'() {
+        this.$find('#tab1nav')[0].popPage();
+        this.trigger('changeTitle', {
+          back: false,
+          title: 'メイン'
+        });
+      }
+    };
+    h5.core.controller('#tab1', tab1Controller);
+    h5.core.expose(tab1Controller);
+  }
+  </script>
+</ons-page>

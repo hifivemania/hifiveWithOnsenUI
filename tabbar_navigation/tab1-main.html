@@ -1,0 +1,27 @@
+<ons-page id="tab1main">
+  <p style="text-align: center;">
+    <p>ここはメインページです。</p>
+    <p>
+      <ons-input id="message" modifier="underbar" placeholder="メッセージ" float></ons-input>
+    </p>
+    <ons-button class="btn" modifier="large">詳細画面に移動</ons-button>
+  </p>
+  <script>
+  ons.getScriptPage().onInit = function() {
+    const tab1MainController = {
+      __name: 'Tab1MainController',
+      
+      '.btn click'() {
+        this.trigger('changeTitle', {
+          back: true,
+          title: '詳細'
+        });
+        $('#tab1nav')[0].pushPage('tab1-detail.html', {
+          message: this.$find('#message').val()
+        });
+      }
+    };
+    h5.core.controller('#tab1main', tab1MainController);
+  }
+  </script>
+</ons-page>

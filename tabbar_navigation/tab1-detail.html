@@ -1,0 +1,22 @@
+<ons-page id="tab1detail">
+  <p style="text-align: center;">
+    こちらは詳細画面です
+    <ons-button class="btn" modifier="large">戻る</ons-button>
+  </p>
+  <script>
+  ons.getScriptPage().onInit = function() {
+    const tab1DetailController = {
+      __name: 'Tab1DetailController',
+      
+      '.btn click'() {
+        this.trigger('changeTitle', {
+          back: false,
+          title: 'メイン'
+        });
+        $('#tab1nav')[0].popPage();
+      }
+    };
+    h5.core.controller('#tab1detail', tab1DetailController);
+  }
+  </script>
+</ons-page>
